@@ -1,0 +1,55 @@
+body {
+    background-image: url(Mainpage.jpeg);
+    background-repeat: no-repeat;
+    background-size: 100%;
+    display: flex;
+    align-items: center;
+        background-attachment: fixed;
+        background-size: cover;
+}
+
+h1 {
+    text-align: center;
+
+}
+
+label {
+    margin: 8px;
+    display: inline-block;
+    margin: 10px;
+}
+
+form {
+    text-align: center;
+    font-size: 25px;
+    border-radius: 20px;
+    background: #00425A;
+    width: 800px;
+    margin-left: 330px;
+    margin-top: 210px;
+
+}
+
+#username {
+    height: 30px;
+    border-radius: 8px;
+
+}
+
+#password {
+    height: 30px;
+    border-radius: 8px;
+}
+
+#login {
+    font-size: 18px;
+    border-radius: 5px;
+    margin: 10px;
+    border: 2px solid;
+    display: flex;
+}
+
+#login:hover {
+    border-color: yellow;
+    cursor: pointer;
+}

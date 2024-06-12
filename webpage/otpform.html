@@ -1,0 +1,9 @@
+{% extends 'loginbase.html' %}
+{% block otpform %}
+<form action="OtpAuthenticator" method="post">
+    {% csrf_token %}
+    Enter OTP:<input type="text" name="otpcode"><br>
+    <input type="submit">
+    {{OtpError}}
+</form>
+{% endblock %}

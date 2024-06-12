@@ -1,0 +1,789 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+      
+    
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css">
+    <link rel="stylesheet" href="{% static 'style1.css' %}">
+    <link rel="stylesheet" href="{% static 'style4.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unified Data Verification System</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $("#acca").hide();
+            $("#gov").hide();
+            $("#work").hide();
+            $("#cer").hide();
+
+            $("#pd").on("click",function(){
+                $("#per").show();
+                $("#acca").hide();
+                $("#gov").hide();
+                $("#work").hide();
+                $("#cer").hide();
+
+            });
+            $("#ad").on("click",function(){
+                $("#per").hide();
+                $("#acca").show();
+                $("#gov").hide();
+                $("#work").hide();
+                $("#cer").hide();
+            });
+            $("#gv").on("click",function(){
+                $("#per").hide();
+                $("#acca").hide();
+                $("#gov").show();
+                $("#work").hide();
+                $("#cer").hide();
+            });
+            $("#wo").on("click",function(){
+                $("#per").hide();
+                $("#acca").hide();
+                $("#gov").hide();
+                $("#work").show();
+                $("#cer").hide();
+
+            });
+            $("#ce").on("click",function(){
+                $("#per").hide();
+                $("#acca").hide();
+                $("#gov").hide();
+                $("#work").hide();
+                $("#cer").show();
+
+            });
+
+        });
+        </script>
+    <style>
+    @import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
+
+    *{
+        list-style: none;
+        text-decoration: none;
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: 'Open Sans', sans-serif;
+    }
+    
+    body{
+        background: #f5f6fa;
+        background-image: url("{% static 'black.jpg' %}");
+        width: 100%;
+        margin: 0px;
+        padding: 0px;
+        /* opacity: .2; */
+    }
+    
+    .wrapper .sidebar{
+        background: rgb(34, 33, 33);
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 225px;
+        height: 100%;
+        padding: 20px 0;
+        transition: all 0.5s ease;
+    }
+    
+    .wrapper .sidebar .profile{
+        margin-bottom: 30px;
+        text-align: center;
+    }
+    
+    .wrapper .sidebar .profile img{
+        display: block;
+        width: 100px;
+        height: 100px;
+        border-radius: 50%;
+        margin: 0 auto;
+    }
+    
+    .wrapper .sidebar .profile h3{
+        color: #ffffff;
+        margin: 10px 0 5px;
+    }
+    
+    .wrapper .sidebar .profile p{
+        color: rgb(206, 240, 253);
+        font-size: 14px;
+    }
+    
+    .wrapper .sidebar ul li a{
+        display: block;
+        padding: 13px 30px;
+        border-bottom: 1px solid #8d7e10;
+        color: rgb(241, 237, 237);
+        font-size: 16px;
+        position: relative;
+    }
+    
+    .wrapper .sidebar ul li a .icon{
+        color: #dee4ec;
+        width: 30px;
+        display: inline-block;
+    }
+    
+     
+    
+    .wrapper .sidebar ul li a:hover,
+    .wrapper .sidebar ul li a.active{
+        color: #1b1e20;
+    
+        background:white;
+        border-right: 2px solid rgb(24, 26, 28);
+    }
+    
+    .wrapper .sidebar ul li a:hover .icon,
+    .wrapper .sidebar ul li a.active .icon{
+        color: #303436;
+    }
+    
+    .wrapper .sidebar ul li a:hover:before,
+    .wrapper .sidebar ul li a.active:before{
+        display: block;
+    }
+    
+    .wrapper .section{
+         width:430%;  /*calc(100% - 225px) */
+        margin-left: 225px;
+        margin-top: -370px;
+        transition: all 0.5s ease;
+    }
+    
+    .wrapper .section .top_navbar{
+        background: rgb(34, 33, 33);
+        
+        height: 50px;
+        display: flex;
+        align-items: center;
+        padding: 0 30px;
+     
+    }
+    
+    .wrapper .section .top_navbar .hamburger a{
+        font-size: 28px;
+        color: #f4fbff;
+        /* margin-bottom:120px; */
+    }
+    
+    .wrapper .section .top_navbar .hamburger a:hover{
+        color: #e8edef;
+    }
+    /* h1{
+        position: relative;
+        bottom: 0;
+        font-size: 35px;
+    } */
+    
+     
+    
+    body.active .wrapper .sidebar{
+        left: -225px;
+    }
+    
+    body.active .wrapper .section{
+        margin-left: 0;
+        width: 100%;
+    }
+    
+
+    </style>
+</head>
+<body>
+   
+    <div class="wrapper">
+        <div class="section">
+            <div class="top_navbar">
+                <div class="hamburger">
+                    <a href="#">
+                        <i class="fas fa-bars"></i>
+                    </a>
+                </div>
+            </div>
+             
+        </div>
+        
+       
+        <div class="sidebar">
+            <div class="profile">
+                <img src="{% static 'profile.jpg' %}" alt="profile pic">
+                <h3>{{datas.0.Fname}}</h3>
+            </div>
+            <ul>
+                <li id="pd">
+                    <a>
+                        <span class="icon"><i class="fas fa-user"></i></span>
+                        <span class="item">Personal Details</span>
+                        
+                    </a>
+                </li>
+                <li id="ad">
+                    <a>
+                        <span class="icon"><i class="fas fa-desktop"></i></span>
+                        <span class="item">Academics</span>
+                    </a>
+                </li>
+                <li id="gv">
+                    <a href="#">
+                        <span class="icon"><i class="fas fa-user-friends"></i></span>
+                        <span class="item">Government</span>
+                    </a>
+                </li>
+                <li id="wo">
+                    <a href="#">
+                        <span class="icon"><i class="fas fa-tachometer-alt"></i></span>
+                        <span class="item">Training & Placement</span>
+                    </a>
+                </li>
+                <li id="ce">
+                    <a href="#">
+                        <span class="icon"><i class="fas fa-database"></i></span>
+                        <span class="item">Certificate</span>
+                    </a>
+                </li>
+                <li id="ab">
+                    <a href="/LogOut">
+                        <span class="icon"><i class="fa fa-sign-out"></i></span>
+                        <span class="item">Logout</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        
+    </div>
+    <section>
+
+        <center><div class="form-container" id="per">
+             <h1 class="main-heading">Personal Details</h1><hr style="margin-top: -110px;">
+             <table style="margin-top: 50px; font-size: 22px;">
+                <tr>
+                    <td>
+                        <div class="control2" style="display:flex">
+                            <label for="name" style="margin-top:10px; ">First Name:</label>
+                        </div>
+                    </td>
+                    <td >
+                        <div class="control2" style="display:flex; width: 300px;" >
+                            <p id="p1">{{datas.0.Fname}}</p>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="control2" style="display:flex">
+                            <label for="name" style="margin-top:10px; ">Last Name:</label>
+                        </div>
+                    </td>
+                    <td >
+                        <div class="control2" style="display:flex; width: 300px;" >
+                            <p id="p1">{{datas.0.Lname}}</p>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td >
+                        <div class="control2" style="display:flex">
+                            <label for="name"style="margin-top:10px;">DOB:</label>
+                        </div>
+                    </td>
+                    <td >
+                        <div class="control2" style="display:flex; width: 300px;" >
+                            <p id="p1">{{datas.0.dob}}</p>
+                        </div>
+                    </td>
+                    <td >
+                        <div class="control2" style="display:flex">
+                            <label for="name"style="margin-top:10px;">Gender:</label>
+                        </div>
+                    </td>
+                    <td >
+                        <div class="control2" style="display:flex; width: 300px;" >
+                            <p id="p1">{{datas.0.gender}}</p>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td >
+                        <div class="control2" style="display:flex">
+                            <label for="name"style="margin-top:10px;">Phone_No:</label>
+                        </div>
+                    </td>
+                    <td >
+                        <div class="control2" style="display:flex; width: 300px;" >
+                            <p id="p1">{{datas.0.phone_no}}</p>
+                        </div>
+                    </td>
+                    <td >
+                        <div class="control2" style="display:flex">
+                            <label for="name"style="margin-top:10px;">Mail_id:</label>
+                        </div>
+                    </td>
+                    <td >
+                        <div class="control2" style="display:flex; width: 300px;" >
+                            <p id="p1">{{datas.0.mail_id}}</p>
+                        </div>
+                    </td>
+                </tr>
+        
+                <tr>
+                    <td >
+                        <div class="control2" style="display:flex">
+                            <label for="name" style="margin-top:10px;">Father_name:</label>
+                        </div>
+                    </td>
+                    <td >
+                        <div class="control2" style="display:flex; width: 300px;" >
+                            <p id="p1">{{datas.0.Father_name}}</p>
+                        </div>
+                    </td>
+                    <td >
+                        <div class="control2" style="display:flex">
+                            <label for="name" style="margin-top:10px;">Father_pof:</label>
+                        </div>
+                    </td>
+                    <td >
+                        <div class="control2" style="display:flex; width: 300px;" >
+                            <p id="p1">{{datas.0.Father_prof}}</p>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td >
+                        <div class="control2" style="display:flex">
+                            <label for="name" style="margin-top:10px;">Mother_name:</label>
+                        </div>
+                    </td>
+                    <td >
+                        <div class="control2" style="display:flex; width: 300px;" >
+                            <p id="p1">{{datas.0.Mother_name}}</p>
+                        </div>
+                    </td>
+                    <td >
+                        <div class="control2" style="display:flex">
+                            <label for="name" style="margin-top:10px;">Mother_pof:</label>
+                        </div>
+                    </td>
+                    <td >
+                        <div class="control2" style="display:flex; width: 300px;" >
+                            <p id="p1">{{datas.0.Mother_prof}}</p>
+                        </div>
+                    </td>
+                </tr>
+        
+                <tr>
+                    <td >
+                        <div class="control2" style="display:flex">
+                            <label for="name" style="margin-top:10px;">Current Address:</label>
+                        </div>
+                    </td>
+                    <td >
+                        <div class="control2" style="display:flex; width: 300px;" >
+                            <p id="p1">{{datas.0.current_add}}</p>
+                        </div>
+                    </td>
+                    <td >
+                        <div class="control2" style="display:flex">
+                            <label for="name" style="margin-top:10px;">Permenent Address:</label>
+                        </div>
+                    </td>
+                    <td >
+                        <div class="control2" style="display:flex; width: 300px;" >
+                            <p id="p1">{{datas.0.permanent_add}}</p>
+                        </div>               </td>
+                </tr>   
+    
+        </table>
+      
+        
+       
+
+        </div>
+        </center>
+        <center><div class="form-container" id="acca">
+            <h1 class="main-heading">Academics Details</h1><hr style="margin-top: -100px;">
+             <table style="margin-top: 50px; font-size: 22px;">
+                <tr>
+                    <td>
+                        <div class="control2" style="display:flex">
+                            <label for="name" style="margin-top:10px; ">Secondary Education</label>
+                        </div>
+                    </td>
+                    <td >
+                        <div class="control2" style="display:flex; width: 300px;" >
+                            <p id="p1"></p>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="control2" style="display:flex">
+                            <label for="name" style="margin-top:10px; ">      </label>
+                        </div>
+                    </td>
+                    <td >
+                        <div class="control2" style="display:flex; width: 300px;" >
+                            <p id="p1"></p>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td >
+                        <div class="control2" style="display:flex">
+                            <label for="name"style="margin-top:10px;">Institute:</label>
+                        </div>
+                    </td>
+                    <td >
+                        <div class="control2" style="display:flex; width: 300px;" >
+                            <p id="p1">{{datas.1.secondary_institute}}</p>
+                        </div>
+                    </td>
+                    <td >
+                        <div class="control2" style="display:flex">
+                            <label for="name"style="margin-top:10px;">Score:</label>
+                        </div>
+                    </td>
+                    <td >
+                        <div class="control2" style="display:flex; width: 300px;" >
+                            <p id="p1">{{datas.1.secondary_score}}</p>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td >
+                        <div class="control2" style="display:flex">
+                            <label for="name"style="margin-top:10px; width:250px">Higher Secondary Education</label>
+                        </div>
+                    </td>
+                    <td >
+                        <div class="control2" style="display:flex; width: 300px;" >
+                            <p id="p1"></p>
+                        </div>
+                    </td>
+                    <td >
+                        <div class="control2" style="display:flex">
+                            <label for="name"style="margin-top:10px;">      </label>
+                        </div>
+                    </td>
+                    <td >
+                        <div class="control2" style="display:flex; width: 300px;" >
+                            <p id="p1"></p>
+                        </div>
+                    </td>
+                </tr>
+        
+                <tr>
+                    <td >
+                        <div class="control2" style="display:flex">
+                            <label for="name" style="margin-top:10px;">Institute:</label>
+                        </div>
+                    </td>
+                    <td >
+                        <div class="control2" style="display:flex; width: 300px;" >
+                            <p id="p1">{{datas.1.higher_institute}}</p>
+                        </div>
+                    </td>
+                    <td >
+                        <div class="control2" style="display:flex">
+                            <label for="name" style="margin-top:10px;">Score:</label>
+                        </div>
+                    </td>
+                    <td >
+                        <div class="control2" style="display:flex; width: 300px;" >
+                            <p id="p1">{{datas.1.higher_score}}</p>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td >
+                        <div class="control2" style="display:flex">
+                            <label for="name" style="margin-top:10px;">University:</label>
+                        </div>
+                    </td>
+                    <td >
+                        <div class="control2" style="display:flex; width: 300px;" >
+                            <p id="p1">{{datas.2.university_name}}</p>
+                        </div>
+                    </td>
+                    <td >
+                        <div class="control2" style="display:flex">
+                            <label for="name" style="margin-top:10px; width: 150px;">Current CGPA:</label>
+                        </div>
+                    </td>
+                    <td >
+                        <div class="control2" style="display:flex; width: 300px;" >
+                            <p id="p1">{{datas.2.cgpa}}</p>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td >
+                        <div class="control2" style="display:flex">
+                            <label for="name" style="margin-top:10px;">Current Attandance:</label>
+                        </div>
+                    </td>
+                    <td >
+                        <div class="control2" style="display:flex; width: 300px;" >
+                            <p id="p1">{{datas.2.attendance}}</p>
+                        </div>
+                    </td>
+                    <td >
+                        <div class="control2" style="display:flex">
+                            <label for="name" style="margin-top:10px;"></label>
+                        </div>
+                    </td>
+                    <td >
+                        <div class="control2" style="display:flex; width: 300px;" >
+                            <p id="p1"></p>
+                        </div>
+                    </td>
+                </tr>
+        
+                
+        
+                
+    
+        </table>
+                
+        </div>
+        </center>
+    </center>
+    <center><div class="form-container" id="gov" style="margin-top: 120px;">
+        <h1 class="main-heading">GOVERNMENT DOCUMENTS</h1><hr style="margin-top: -100px;">
+        <table style="margin-top: 50px; margin-left: 50px; font-size: 22px;">
+            <tr>
+                <td>
+                    <div class="control2" style="display:flex; width:180px;">
+                        <label for="name" style="margin-top:10px; ">Aadhar Card:</label>
+                    </div>
+                </td>
+                <td >
+                    <div class="control2" style="display:flex; width: 300px;" >
+                        <button style="font-size:14px;color:white; background-color: gray; margin-top: 10px;">Download<i class="fa fa-download"></i></button> 
+                    </div>
+                </td>
+                <td>
+                    <div class="control2" style="display:flex;width:190px; margin-left: -70px;">
+                        <label for="name" style="margin-top:10px;">Aadhar Number:</label>
+                    </div>
+                </td>
+                <td >
+                    <div class="control2" style="display:flex; width: 300px;" >
+                        <p id="p1">{{datas.3.Adhar_Num}}</p>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <div class="control2" style="display:flex">
+                        <label for="name" style="margin-top:10px; ">Pan Card:</label>
+                    </div>
+                </td>
+                <td >
+                    <div class="control2" style="display:flex; width: 300px;" >
+                        <button style="font-size:14px;color:white; background-color: gray; margin-top: 10px;">Download<i class="fa fa-download"></i></button> 
+                    </div>
+                </td>
+                <td>
+                    <div class="control2" style="display:flex;margin-left: -70px;">
+                        <label for="name" style="margin-top:10px; ">Pan Number:</label>
+                    </div>
+                </td>
+                <td >
+                    <div class="control2" style="display:flex; width: 300px;" >
+                        <p id="p1">{{datas.3.Pan_Num}}</p>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <div class="control2" style="display:flex">
+                        <label for="name" style="margin-top:10px; ">Voter ID:</label>
+                    </div>
+                </td>
+                <td >
+                    <div class="control2" style="display:flex; width: 300px;" >
+                        <button style="font-size:14px;color:white; background-color: gray; margin-top: 10px;">Download<i class="fa fa-download"></i></button> 
+                    </div>
+                </td>
+                <td>
+                    <div class="control2" style="display:flex">
+                        <label for="name" style="margin-top:10px;margin-left: -70px; ">Voter ID Number:</label>
+                    </div>
+                </td>
+                <td >
+                    <div class="control2" style="display:flex; width: 300px;" >
+                        <p id="p1">{{datas.3.Votter_num}}</p>
+                    </div>
+                </td>
+            </tr>
+    
+            <tr>
+                <td>
+                    <div class="control2" style="display:flex" >
+                        <label for="name" style="margin-top:10px;width:190px; ">Caste Certificate:</label>
+                    </div>
+                </td>
+                <td >
+                    <div class="control2" style="display:flex; width: 300px;" >
+                        <button style="font-size:14px;color:white; background-color: gray; margin-top: 10px;">Download<i class="fa fa-download"></i></button> 
+                    </div>
+                </td>
+                <td>
+                    <div class="control2" style="display:flex">
+                        <label for="name" style="margin-top:10px;margin-left: -70px; ">Caste:</label>
+                    </div>
+                </td>
+                <td >
+                    <div class="control2" style="display:flex; width: 300px;" >
+                        <p id="p1">{{datas.3.Caste_id}}</p>
+                    </div>
+                </td>
+            </tr>
+           
+
+    </table>
+
+    </div></center>
+    <div class="form-container2" id="work">
+        <h1 class="main-heading" style="margin-left: 320px;">Training & Placement</h1><hr style="margin-top: -110px;">
+        <div class="pricing-table">
+            <div class="pricing-card">
+              <h3 class="pricing-card-header">Training</h3>
+              <div id="tr" >
+                <br>
+                <h3 > java</h3>
+                <h3 > c++</h3>
+                <h3 > python</h3>
+
+              </div>
+            </div>
+        
+            <div class="pricing-card">
+              <h3 class="pricing-card-header">Workshop</h3>
+              <div id="ws">
+                <br>
+                <h3>
+                    Robotics
+                </h3>
+                <h3>
+                    GCC
+                </h3>
+              </div>
+            </div>
+        
+            <div class="pricing-card">
+              <h3 class="pricing-card-header">Internship</h3>
+              <div id="in">
+                <br>
+                <h3>Microsoft</h3>
+                <h3>Google</h3>
+              </div>
+              
+            </div>
+        
+            <div class="pricing-card">
+              <h3 class="pricing-card-header">Placement Oppertunity</h3>
+              <div id="po">
+                <br>
+                <h3> TCS</h3>
+              </div>
+            </div>
+            <div class="pricing-card">
+              <h3 class="pricing-card-header">Additional Activities</h3>
+              
+              <div id="aa">
+                <br>
+                <h3>Photography</h3>
+              </div>
+            </div>
+          </div>
+        
+    </div></center>
+    <center><div class="form-container" id="cer" style="font-size: 20px; ">
+        <h1 class="main-heading">CERTIFICATE</h1><hr style="margin-top: -110px;">
+        <table style="margin-top: 30px;">
+
+            <tr>
+                <td>
+                    <div class="control2" style="display:flex">
+                        <label for="name" style=" width: 200px; ">CERTIFICATE NAME:</label>
+                    </div>
+                </td>
+                <td >
+                    <div class="control2" style="display:flex; width: 300px;" >
+                        <p id="p1">Java</p>
+                    </div>
+                </td>
+                <td>
+                    <div class="control2" style="display:flex">
+                        <label for="name">CERTIFICATE:</label>
+                    </div>
+                </td>
+                <td >
+                    <div class="control2" style="display:flex; width: 300px;" >
+                        <button style="font-size:14px;color:white; background-color: gray; ">Download<i class="fa fa-download"></i></button> 
+                    </div>
+                </td>
+                
+            </tr>
+            <tr>
+                <td>
+                    <div class="control2" style="display:flex">
+                        <label for="name" style=" width: 200px; ">CERTIFICATE NAME:</label>
+                    </div>
+                </td>
+                <td >
+                    <div class="control2" style="display:flex; width: 300px;" >
+                        <p id="p1">C++</p>
+                    </div>
+                </td>
+                <td>
+                    <div class="control2" style="display:flex">
+                        <label for="name">CERTIFICATE:</label>
+                    </div>
+                </td>
+                <td >
+                    <div class="control2" style="display:flex; width: 300px;" >
+                        <button style="font-size:14px;color:white; background-color: gray; ">Download<i class="fa fa-download"></i></button> 
+                    </div>
+                </td>
+                
+            </tr>
+            <tr>
+                <td>
+                    <div class="control2" style="display:flex">
+                        <label for="name" style=" width: 200px; ">CERTIFICATE NAME:</label>
+                    </div>
+                </td>
+                <td >
+                    <div class="control2" style="display:flex; width: 300px;" >
+                        <p id="p1">C</p>
+                    </div>
+                </td>
+                <td>
+                    <div class="control2" style="display:flex">
+                        <label for="name">CERTIFICATE:</label>
+                    </div>
+                </td>
+                <td >
+                    <div class="control2" style="display:flex; width: 300px;" >
+                        <button style="font-size:14px;color:white; background-color: gray; ">Download<i class="fa fa-download"></i></button> 
+                    </div>
+                </td>
+                
+            </tr>
+            </table>
+    </div></center>
+    </section>
+  <script>
+       var hamburger = document.querySelector(".hamburger");
+	hamburger.addEventListener("click", function(){
+		document.querySelector("body").classList.toggle("active");
+	})
+  </script>
+</body>
+</html>

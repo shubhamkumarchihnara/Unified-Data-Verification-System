@@ -1,0 +1,43 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0">-->
+    <title>LOGIN FORM</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'login.css' %}">
+</head>
+
+<body>
+
+<section>
+        <center><div class="form-container">
+            <h1>PASSWORD RESET</h1>
+            <form action="ChangePass" method="POST">
+                {% csrf_token %}
+                <div class="control">
+                    <label for="name">PASSWORD</label>
+                    <input type="password" name="pass" id="name" placeholder="SET PASSWORD" required>
+                </div>
+                <div class="control">
+                    <label for="password">CONFIRM PASSWORD</label>
+                    <input type="password" name="cpass" id="pass" placeholder="SET CONFIRM PASSWORD" required>
+                </div>
+                <!-- <span><input type="checkbox"> Remember me</span> -->
+                <div class="control">
+                    <input type="submit" name="submit" value="RESET PASSWORD">
+                </div>
+            </form>
+            <div class="link1" style="margin-top:20px;" >
+                <a href="logout.php">Goto Login Page</a>
+            </div>
+        </div>
+        </center>
+    </section>
+
+
+</body>
+
+</html>

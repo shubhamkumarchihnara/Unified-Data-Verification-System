@@ -1,0 +1,43 @@
+table,
+th {
+    border: 1px solid black;
+}
+
+td {
+    border: 1px solid black;
+}
+
+table {
+    font-size: 30px;
+}
+
+h1 {
+    font-size: 30px;
+}
+
+body {
+    background-image: url(Mainpage.jpeg);
+    background-repeat: no-repeat;
+    background-size: 100%;
+        background-attachment: fixed;
+        background-size: cover;
+}
+
+button {
+    margin-top: 15px;
+    font-size: 25px;
+    background-color: black;
+    color: white;
+}
+
+input[type="text"] {
+    border: none;
+    cursor: default;
+    font-size: 30px;
+    background: none;
+  }
+
+  input[type="text"]:hover {
+    border: none;
+    cursor: default;
+  }

@@ -1,0 +1,55 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>REGISTER FORM</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'style.css' %}">
+</head>
+
+<body>
+    <section>
+        <center><div class="form-container">
+            <h1>REGISTER</h1>
+            <form action="SaveUploader" method="post">
+                {% csrf_token %}
+                <div class="control">
+                    <label for="name">INSTITUTE NAME:</label>
+                    <input type="text" name="institute" id="name" placeholder="Enter Your Institute Name" required>
+                </div>
+                <div class="control">
+                    <label for="name">Email ID:</label>
+                    <input type="text" name="email" id="name" placeholder="Enter Your email id" required>
+                </div>
+                <div class="control" style="margin-top: 40px; margin-right: 60px;">
+                    <label for="name">Are You a Govt.body:</label>
+                </div>
+                <div class="c1" style="margin-left:210px;margin-top:-17px ;">
+                  <input type="radio">YES
+                  <input type="radio">NO
+                </div>  
+                <div class="control" style="margin-top: 40px; margin-right: 90px;">
+                    <label for="name">Any collaboration with University:</label>
+                </div>
+                <div class="c1" style="margin-left:240px;margin-top:-17px ;">
+                  <input type="radio">YES
+                  <input type="radio">NO
+                </div>  
+                <br>
+                    <label for="name">Tell about Yourself:</label><br></br>
+                    <textarea placeholder="Tell about yourself" name="tellaboutself" required style="width: 100%;"></textarea>
+                </div>
+                <input type="submit" name="submit" value="SUBMIT" style="width:5% ;padding: 10px; background-color: aqua; margin-left: 320px; position: relative; top: -50px;"></form>
+            </form>
+                
+        </div>
+        </center>
+    </section>
+
+
+</body>
+
+</html>

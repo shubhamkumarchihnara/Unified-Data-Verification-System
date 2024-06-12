@@ -1,0 +1,125 @@
+{% extends 'loginbase.html' %}
+{% block loginform %}
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script>
+    $(document).ready(function(){
+       $("#form-containe1r").show();
+       $("#form-container2").hide();
+       $("#form-container3").hide();
+        $("#stude").on("click",function(){
+            $("#form-container1").show();
+             $("#form-container2").hide();
+            $("#form-container3").hide();
+        });
+        $("#empl").on("click",function(){
+            $("#form-container1").hide();
+            $("#form-container2").show();
+            $("#form-container3").hide();
+        });
+        $("#upde").on("click",function(){
+            $("#form-container1").hide();
+            $("#form-container2").hide();
+            $("#form-container3").show();
+        });
+    });
+    </script>
+<section>
+    <div style="display:flex; margin-left:39rem;margin-top:7rem;">
+        <input type="radio" id="stude" name="choose" value="student">
+        <label for="html">Student</label>
+        <input type="radio" id="empl" name="choose" value="employee" style="margin-left:2rem;">
+        <label for="css">Admin</label>
+        <input type="radio" id="upde" name="choose" value="uploader" style="margin-left:1rem;">
+        <label for="css">Uploader</label></div>
+        </div>
+        <center>
+    <center><div class="form-container" id="form-container1" style="margin-top: -23px;">
+        <h2>Student Login</h2>
+        <form action="paasswordcheck" method="post">
+            {% csrf_token %}
+            <div class="control">
+                <label for="name">EMAIL</label>
+                <input type="text" name="uname" id="name" placeholder="Enter Your Email" required>
+            </div>
+            <div class="control">
+                <label for="password">PASSWORD</label>
+                <input type="password" name="pswd" id="pass" placeholder="Enter Your Password" required>
+            </div>
+            <span><input type="checkbox" required> Remember me</span>
+            <div class="control">
+                <input type="submit" name="submit" value="LOGIN" style="width:105% ;"></form>
+            </div>
+        </form>
+        <div class="link">Don't have any account?
+            <a href="/RegisterUser">Register Here!</a>
+        </div>
+        <div class="link1" style="margin-top:20px;" >
+            
+            <a href="/ForgetPassword">forget/Reset Password?</a></form>
+        </div>
+        <div class="link">Login as
+            <a href="/LoginAsCompany">Company</a>
+        </div>
+    </div>
+    </center>
+    <center><div class="form-container" id="form-container2" style="margin-top: -23px;">
+        <h2>Admin Login</h2>
+        <form action="AdminLogin" method="post">
+            {% csrf_token %}
+            <div class="control">
+                <label for="name">ID NUMBER</label>
+                <input type="text" name="uname" id="name" placeholder="Enter Your ID number" required>
+            </div>
+            <div class="control">
+                <label for="password">PASSWORD</label>
+                <input type="password" name="pass" id="pass" placeholder="Enter Your Password" required>
+            </div>
+            <span><input type="checkbox" required> Remember me</span>
+            <div class="control">
+                <input type="submit" name="submit" value="LOGIN" style="width:105% ;">
+            </div>
+        <!-- <div class="link">Don't have any account?
+            <a href="register.html">Register Here!</a>
+        </div> -->
+    </form>
+        <div class="link1" style="margin-top:20px;" >
+            <a href="forget.html">forget/Reset Password?</a>
+        </div>
+    </div>
+    </center>
+    <center><div class="form-container" id="form-container3" style="margin-top: -23px;">
+        <h2>Uploader Login</h2>
+        <form action="UploaderLogin" method="post">
+            {% csrf_token %}
+            <div class="control">
+                <label for="name">ID NUMBER</label>
+                <input type="text" name="uploaderId" id="name" placeholder="Enter Your ID number" required>
+            </div>
+            <div class="control">
+                <label for="password">PASSWORD</label>
+                <input type="password" name="pass" id="pass" placeholder="Enter Your Password" required>
+            </div>
+            <span><input type="checkbox" required> Remember me</span>
+            <div class="control">
+                <input type="submit" name="submit" value="LOGIN" style="width:105% ;"></form>
+            </div>
+        </form>
+        <div class="link">Don't have any account?
+            <a href="/UploaderRegister">Register Here!</a>
+        </div>
+        <div class="link1" style="margin-top:20px;" >
+            <a href="forget.html">forget/Reset Password?</a>
+        </div>
+        
+    </div>
+    </center>
+</center>
+</section>
+{% if Alert %}
+    <script>
+        window.alert("Wrong Credential!")
+    </script>
+{% endif %}
+
+{% endblock %}

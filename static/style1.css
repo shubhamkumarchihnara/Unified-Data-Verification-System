@@ -1,0 +1,55 @@
+
+
+body{
+    background-image: url('black.jpg');
+    background-size: cover;
+    font-family: "open sans";
+    color: #fff;
+}.form-container{
+    position: initial;
+    margin-top: 90px;
+    margin-bottom: 50px;
+    background: linear-gradient(rgba(0,0,0,0.3),rgba(0, 0, 0, 0.74));
+    width: 980px;
+    padding: 90px 90px;
+    border-radius: 10px;
+    box-shadow: 7px 7px 60px #000;
+    height: 500px;
+}
+#n1{
+    position: relative;
+     right:180px;
+     font-size: 20px;
+     bottom:120px;
+}
+#n2{
+    position: relative;
+     right:190px;
+     font-size: 20px;
+     bottom:80px;
+}
+#n3{
+    position: relative;
+     right:140px;
+     font-size: 20px;
+     bottom:30px;
+
+}
+#n4{
+    position: relative;
+     right:138px;
+     font-size: 20px;
+     top:20px;
+}
+#n5{
+    position: relative;
+     right:138px;
+     font-size: 20px;
+     top:50px;
+}
+
+h1{
+    position:relative;
+    bottom: 140px;
+    font-size: 35px;
+}

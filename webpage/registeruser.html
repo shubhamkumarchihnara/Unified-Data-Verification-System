@@ -1,0 +1,89 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>REGISTER FORM</title>
+    <!-- <link rel="stylesheet" type="text/css" href="./style.css"> -->
+</head>
+<style>
+    body{
+    background-image: url("{% static 'black.jpg' %}");
+    background-size: cover;
+    font-family: "open sans";
+    color: #fff;
+}
+    .form-container2{
+    position: absolute;
+    margin-top: 150px;
+    margin-bottom: 50px;
+    margin-left: 275px;
+    background: linear-gradient(rgba(0,0,0,0.3),rgba(0, 0, 0, 0.74));
+    width: 600px;
+    padding: 50px 30px;
+    border-radius: 10px;
+    box-shadow: 7px 7px 60px #000;
+}
+h1{
+    margin-left: 250px;
+}
+</style>
+<body>
+    <section>
+        <div class="form-container2">
+            <h1> REGISTER</h1>
+            <br>
+            <table style="font-size: 22px;">        
+    
+                <tr>
+                    <form action="RegisterOtpSend" method="post">
+                        {% csrf_token %}
+                        <td>
+                            <div class="control2" style="display:flex">
+                                <label for="name" style="margin-top:10px; width: 100px; ">MAIL ID:</label>
+                            </div>
+                        </td>
+                        <td >
+                            <div class="control2" style="display:flex;">
+                                <input type="text" name="email" id="name" style=" width: 300px; height: 20px;" placeholder="Enter Your Mail Id">
+                            </div>
+                        </td>
+                        <td>
+                            <div class="control2" style="display:flex">
+                                <input type="submit" name="submit" value="GET OTP" style="width: 150px;  border-radius: 15px;margin-left: 40px; background-color: rgb(18, 152, 175); border-color: rgb(18, 152, 175)">
+                            </div>
+                        </td>
+                    </form>
+                </tr>
+                <tr>
+                    <form action="RegisterOtpVerify" method="post">
+                        {% csrf_token %}
+                        <td >
+                            <div class="control2" style="display:flex">
+                                <label for="name"style="margin-top:10px; width:100px">OTP:</label>
+                            </div>
+                        </td>
+                        <td >
+                            <div class="control2" style="display:flex">
+                                <input type="text" name="otp" id="name"  style=" width: 300px; height: 20px;" placeholder="Enter OTP ">
+                            </div>
+                        </td>
+                        <td >
+                            <div class="control2" style="display:flex">
+                                <input type="submit" name="submit" value="Get ID" style="width: 150px;  border-radius: 15px; margin-left: 40px; background-color: rgb(18, 152, 175);border-color: rgb(18, 152, 175)">
+                            </div>
+                        </td>
+                        <td >
+                    </form>
+                </tr>
+                
+                </table>
+            
+            </div>
+        </div>
+    </section>       
+</body>
+</html>
+

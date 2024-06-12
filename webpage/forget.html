@@ -1,0 +1,35 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0">-->
+    <title>email_recovery</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'login.css' %}">
+</head>
+
+<body>
+
+    <section>
+        <center><div class="form-container">
+            <h1> Enter your Email</h1>
+            <form action="SendOtp" method="POST">
+                {% csrf_token %}
+                <div class="control">
+                    <label for="name">EMAIL</label>
+                    <input type="text" name="email" id="name" placeholder="Enter Your Email" required style="width:95% ;">
+                </div>
+                <div class="control">
+                    <input type="submit" name="submit" value="Submit">
+                </div>
+            </form>
+        </div>
+        </center>
+    </section>
+
+
+</body>
+
+</html>

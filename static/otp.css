@@ -1,0 +1,26 @@
+div {
+    text-align: center;
+    margin: 300px;
+    font-size: 30px;
+
+}
+
+label {
+    margin: 8px;
+    display: inline-block;
+    margin: 10px;
+}
+
+#otp {
+    height: 25px;
+    width: 200px;
+    border-radius: 10px;
+}
+
+body {
+    background-image: url(Mainpage.jpeg);
+    background-repeat: no-repeat;
+    background-size: 100%;
+        background-attachment: fixed;
+        background-size: cover;
+}
